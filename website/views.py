@@ -3,11 +3,14 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home_view(request):
-    return render(request,'website/home.html')
+    return render(request,'website/index.html')
 
 def about_view(request):
-    return render(request,'website/about.html')
+    return render(request,'website/page-about.html')
 
 def contact_view(request):
-    return render(request,'website/contact.html')
+    return render(request,'website/page-contact.html')
+
+def category_view(request):
+    return render(request,'website/category.html')
      
