@@ -13,4 +13,6 @@ def contact_view(request):
 
 def category_view(request):
     return render(request,'website/category.html')
-     
+
+def test_view(request):
+    return render(request,'website/single-standard.html')     
