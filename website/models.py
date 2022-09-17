@@ -20,11 +20,11 @@ class Article(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    avatar = models.FileField(upload_to='media')
+    avatar = models.FileField(upload_to='media',blank=True)
     description = models.CharField(max_length=320)
 
-    def ___str__(self):
-        return self.first_name + " " + self.last_name
+    def __str__(self):
+        return f'{self.user.first_name + " " + self.user.last_name} '
 
 
 

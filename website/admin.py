@@ -10,4 +10,4 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['first_name','email','date_joined']
+    list_display = ['user', 'description']
