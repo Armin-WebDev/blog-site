@@ -9,5 +9,5 @@ urlpatterns = [
     path('about/',about_view, name='about'),
     path('contact/',contact_view, name='contact'),
     path('category/' , category_view , name='category'),
-    path('test/',test_view)
+    path('post-<int:pid>',single_article_view, name='single-article')
 ]
