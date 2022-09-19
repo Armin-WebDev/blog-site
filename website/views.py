@@ -19,7 +19,7 @@ def contact_view(request):
 def category_view(request):
     return render(request,'website/category.html')
 
-def single_article_view(request,pid): 
+def single_article_view(request,pid):
         articles = get_object_or_404(Article,pk = pid)
         context = {
         'article':articles,

@@ -13,24 +13,24 @@
 
             <div class="entry__media col-full">
                 <div class="entry__post-thumb">
-                    <img src="{% static 'images/thumbs/single/standard/standard-1000.jpg' %}"
-                         srcset="{% static 'images/thumbs/single/standard/standard-2000.jpg' %} ,
-                                 {% static 'images/thumbs/single/standard/standard-1000.jpg' %} ,
-                                 {% static 'images/thumbs/single/standard/standard-500.jpg' %} "
+                    <img src="{{article.cover}}"
+                         srcset="{{article.cover}} ,
+                                 {{article.cover}} ,
+                                 {{article.cover}} "
                          sizes="(max-width: 2000px) 100vw, 2000px" alt="">
                 </div>
             </div>
 
             <div class="entry__header col-full">
                 <h1 class="entry__header-title display-1">
-                    <p>{{ article.title }}</p>
-                    
+                
+                   <p>{{ article.title }}</p> 
                 </h1>
                 <ul class="entry__header-meta">
-                    <li class="date">June 15, 2018</li>
+                    <li class="date">{{ article.created_at.date }}</li>
                     <li class="byline">
                         By
-                        <a href="#0">Jonathan Doe</a>
+                        <a href="#0">{{article.auther.user.get_full_name}}</a>
                     </li>
                 </ul>
             </div>
@@ -74,17 +74,17 @@
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
 
                 <div class="entry__author">
-                    <img src="{% static 'images/avatars/user-03.jpeg" alt="">
+                    <img src="{{article.auther.avatar.url}}" alt="">
 
                     <div class="entry__author-about">
                         <h5 class="entry__author-name">
                             <span>پست شده توسط</span>
-                            <a href="#0">{{users.user.first_name}}</a>
+                            <a href="#0">{{article.auther.user.get_full_name}}</a>
                         </h5>
 
                         <div class="entry__author-desc">
                             <p>
-                                {{users.description}}.
+                                {{article.auther.description}}.
                             </p>
                         </div>
                     </div>
