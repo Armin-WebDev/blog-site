@@ -11,6 +11,12 @@ class UserProfile(models.Model):
     def __str__(self):
         return f'{self.user.first_name + " " + self.user.last_name} '
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
 class Article(models.Model):
     auther = models.ForeignKey(UserProfile,on_delete=models.SET_NULL,null=True)
     cover = models.ImageField(upload_to = 'covers/',default='covers/sample-image.jpg')
@@ -18,12 +24,13 @@ class Article(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=False)
-    #category 
+    category = models.ForeignKey(Category,on_delete=models.CASCADE,null=True) 
     class Meta:
         ordering =  ['-created_at']
 
     def __str__(self) :
         return self.title
+
 
 
 

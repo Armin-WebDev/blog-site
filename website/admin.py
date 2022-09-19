@@ -11,3 +11,7 @@ class ArticleAdmin(admin.ModelAdmin):
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'description']
+
+@admin.register(Category)
+class CategoruAdmin(admin.ModelAdmin):
+    pass
